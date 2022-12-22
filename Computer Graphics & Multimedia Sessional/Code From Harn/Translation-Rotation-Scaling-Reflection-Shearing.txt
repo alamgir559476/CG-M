@@ -1,0 +1,100 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<string.h>
+#include<math.h>
+
+int main()
+{
+	initwindow(600,800);
+	printf("\t 1.Translation 2.Rotation 3. Scaling 4.Reflection 5.Shearing\n\n");
+	printf("Enter your choice: ");
+	char ch;
+	scanf("%d",&ch);
+	
+	switch(ch)
+	{
+	case 1:
+		{
+			int x1=100,y1=100,x2=200,y2=200,tx=40,ty=40;
+			printf("Rectangle before translation:\n");
+			rectangle(x1,y1,x2,y2);
+			getch();
+			printf("Rectangle after translation:\n");
+			rectangle(x1+tx,y1+ty,x2+tx,y2+ty);
+			getch();
+			break;
+			
+		}	
+
+	case 2:
+		{
+			int x1=100,y1=100,x2=200,y2=200;
+			double degree,xt,yt;
+			printf("\n\n Enter the angle of rotation: ");
+			scanf("%lf",&degree);
+			degree = (degree*3.1416)/180.0;
+			xt = x1 + ((x2-x1)*cos(degree) - (y2-y1)*sin(d1));
+			yt = y1 + ((x2-x1)*sin(degree) + (y2-y1)*cos(d1));
+			line(x1,y1,x2,y2);			
+			printf("\nLine after rotation");			
+			line(x1,y1,(int)xt,(int)yt);
+			getch();
+			break;
+			
+		}
+
+	case 3:
+		{
+			int x1=100,y1=100,x2=200,y2=200,x = 2,y = 2;
+			printf("Rectangle before scaling:\n");
+			rectangle(x1,y1,x2,y2);
+			getch();
+			printf("Rectangle after scaling:\n");
+			rectangle(x1*x,y1*y,x2*x,y2*y);
+			getch();
+			break;
+			
+			
+			
+		}
+
+	case 4:
+		{
+			int x1=50,y1=150,x2=75,y2=125,x3=100,y3=150,xt;
+			printf("\n\n Triangle before reflection: \n");
+			line(x1,y1,x2,y2);
+			line(x1,y1,x3,y3);
+			line(x2,y2,x3,y3);
+			getch();
+			printf("\n\n Triangle after reflection along x-axis:\n");
+			line(x1,-y1+200,x2,-y2+200);
+			line(x1,-y1+200,x3,-y3+200);
+			line(x2,-y2+200,x3,-y3+200);
+			getch();
+			break;
+;		}
+
+	case 5:
+		{
+			int x1=100,y1=100,x2=100,y2=30,x3=170,y3=30,x4=170,y4=30;
+			printf("\n\n Rectangle before shearing:\n");
+			line(x1,y1,x2,y2);
+			line(x1,y1,x4,y4);
+			line(x2,y2,x3,y3);
+			line(x3,y3,x4,y4);
+			getch();
+			printf("\n\n Rectangle after shearing: \n");
+			line(x1,y1,x2+shx*y2,y2);
+			line(x1,y1,x4,y4);
+			line(x2+shx*y2,y2,x3+shx*y3,y3);
+			line(x3+shx*y3,y3,x4,y4);
+			getch();
+			break;
+		}
+
+	
+	}
+return 0;
+
+}
